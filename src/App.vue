@@ -1,9 +1,9 @@
 <script>
-import Pokemons from './components/PokemonList.vue'
+import HomePage from './pages/home-page/HomePage.vue'
 import Loading from './components/Loading.vue'
 export default {
   name: 'App',
-  components: { Loading, Pokemons },
+  components: { Loading, HomePage },
   data() {
     return {
       loading: false,
@@ -20,7 +20,7 @@ export default {
 <template>
   <div>
     <Loading v-if="loading"></Loading>
-    <Pokemons @load-data="functionLoad"></Pokemons>
+    <HomePage @load-data="functionLoad"></HomePage>
   </div>
 </template>
 
