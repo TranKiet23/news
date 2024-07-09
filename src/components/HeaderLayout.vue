@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full">
+  <header class="w-full relative">
     <nav class="container-header">
       <div class="w-full flex justify-between items-center">
         <div class="flex justify-start items-center">
@@ -94,7 +94,7 @@
 .container-header {
   width: 100%;
   background-color: #f5f5f5;
-  max-height: 49px;
+  max-height: 150px;
 }
 
 .bg-f5f5f5 {

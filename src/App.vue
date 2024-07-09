@@ -1,9 +1,10 @@
 <script>
 import HomePage from './pages/home-page/HomePage.vue'
 import Loading from './components/Loading.vue'
+import HeaderLayout from './components/HeaderLayout.vue';
 export default {
   name: 'App',
-  components: { Loading, HomePage },
+  components: { Loading, HomePage, HeaderLayout },
   data() {
     return {
       loading: false,
@@ -18,10 +19,12 @@ export default {
 </script>
 
 <template>
-  <div>
-    <Loading v-if="loading"></Loading>
-    <HomePage @load-data="functionLoad"></HomePage>
-  </div>
+    <HeaderLayout />
+    <body>
+      <Loading v-if="loading"></Loading>
+      <HomePage @load-data="functionLoad"></HomePage>
+
+    </body>
 </template>
 
 <style lang="scss"></style>
