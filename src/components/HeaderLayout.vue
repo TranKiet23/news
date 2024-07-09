@@ -42,7 +42,22 @@
               <a class="text-blue-500 hover:text-blue-800" href="#">sign news</a>
             </li>
             <li class="mr-6">
-              <a class="text-gray-400 cursor-not-allowed" href="#">dropdown</a>
+              <div class="flex h-30 cursor-pointer align-middle no-underline hover:text-gray-900 border-white justify-center items-center dropdown-hard ml-2">
+                  <span class="btn-cus bg-btn-blue">
+                      Dropdown
+                      <i class="fas fa-angle-down ml-1"></i>
+                  </span>
+                  <ul
+                      class="bg-white rounded shadow-md md:absolute right-0 min-w-40 z-30 sub-menu-sm hidden flex flex-col border-blue-200 border"
+                  >
+                      <li
+                          class="px-2 py-1 cursor-pointer text-left"
+                      >Value 1</li>
+                      <li
+                          class="px-2 py-1 cursor-pointer text-left"
+                      >Value 2</li>
+                  </ul>
+              </div>
             </li>
 
           </ul>
@@ -88,6 +103,55 @@
 
 .center-header {
   @apply bg-gray-300 h-10 w-full
+}
+
+.dropdown-hard {
+    position: relative;
+    &:hover .sub-menu {
+        display: flex;
+        top: 19px;
+        left: 0;
+    }
+    &:hover .sub-menu-sm {
+        display: flex;
+        top: 30px;
+        right: 0px;
+        max-height: 300px;
+        li {
+            &:hover {
+                background-color: #ddd;
+            }
+            padding: 8px;
+            white-space: nowrap;
+        }
+    }
+    .sub-menu {
+        max-width: 200px;
+        max-height: calc(100vh - 400px);
+        min-height: 38px;
+        @apply shadow-lg;
+        li {
+            padding: 10px 5px;
+            &:hover {
+                background-color: #ddd;
+            }
+            &:nth-child(1) {
+                @apply rounded-t-md;
+            }
+            &:nth-last-child(1) {
+                @apply rounded-b-md;
+            }
+        }
+        .active {
+                    @apply border-blue-700 border-l-2 bg-blue-300;
+                }
+    }
+    div.active {
+        @apply border-blue-500 border-b-2;
+        &>span {
+            @apply text-blue-500;
+        }
+    }
 }
 </style>
 
