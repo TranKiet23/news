@@ -1,161 +1,62 @@
 <template>
-  <div class="card-carousel">
-    <div class="title-header bg-white">
-      <h2 class="text-black">{{ title }}</h2>
-    <div class="carousel-controls">
-      <button @click="prevSlide"><span>‹</span></button>
-      <button @click="nextSlide"><span>›</span></button>
-    </div>
-    </div>
-
-    <div class="carousel">
-      <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-        <div class="carousel-item" v-for="(card, index) in visibleCards" :key="index">
-          <div class="card">
-            <img :src="card.image" :alt="card.title" class="card-image" />
-            <div class="card-content">
-              <p class="category">{{ card.category }} <span class="text-gray-400 font-normal">/{{ card.date }}</span></p>
-              <h3>{{ card.title }}</h3>
-            </div>
-          </div>
+  <div class="mx-auto px-6 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5" :class="{ 'md:grid-cols-4': imagesToShow === 4 }">
+      <button class="border absolute z-10 mr-[10px] p-2 border-gray-400 transparent cursor-pointer" @click="prevImage">
+        <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-700" />
+      </button>
+      <div class="flex bg-white rounded-lg shadow-md overflow-hidden" v-for="(image, index) in visibleImages"
+        :key="index">
+        <img :src="image.url" :alt="image.url" class="w-1/3 object-cover">
+        <div class="w-2/3 p-4">
+          <h3 class="text-gray-800 font-semibold">Lorem ipsum dolor sit amet</h3>
+          <p class="text-gray-600">{{ image.title }}</p>
         </div>
       </div>
+      <button @click="nextImage" class="border absolute z-10 p-2 right-6  border-gray-400 transparent cursor-pointer">
+        <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-700" />
+      </button>
     </div>
+
   </div>
 </template>
-
+  
 <script>
-import { ref, computed } from 'vue';
-
+import { ref } from "Vue"
+import API from "@/services/api";
 export default {
-  props: {
-    cards: {
-      type: Array,
-      required: true
-    },
-    cardsToShow: {
-      type: Number,
-      default: 2
-    },
-    title: {
-      type: String,
-      default: 'Business'
-    }
-  },
-  setup(props) {
+
+  setup() {
     const currentIndex = ref(0);
-
-    const visibleCards = computed(() => {
-      const start = currentIndex.value * props.cardsToShow;
-      return props.cards.slice(start, start + props.cardsToShow);
-    });
-
-    const nextSlide = () => {
-      if ((currentIndex.value + 1) * props.cardsToShow < props.cards.length) {
-        currentIndex.value += 1;
-      }
-    };
-
-    const prevSlide = () => {
-      if (currentIndex.value > 0) {
-        currentIndex.value -= 1;
-      }
-    };
-
+    const images = ref(API.imagesList);
     return {
       currentIndex,
-      visibleCards,
-      nextSlide,
-      prevSlide
-    };
+      images,
+    }
+  },
+  computed: {
+    visibleImages() {
+      let start = this.currentIndex;
+      let end = start + 1;
+      if (end > this.images.length) {
+        end = this.images.length;
+      }
+      return this.images.slice(start, end);
+    }
+  },
+
+  methods: {
+    nextImage() {
+      if (this.currentIndex < this.images.length - 3) {
+        this.currentIndex += 1;
+      }
+    },
+    prevImage() {
+      if (this.currentIndex > 0) {
+        this.currentIndex -= 1;
+      }
+    }
   }
 };
 </script>
 
-<style scoped>
-.card-carousel {
-  width: 99%;
-  margin: auto;
-  position: relative;
-}
-.title-header {
-  display: flex;
-  position: relative;
-  max-width: 96%;
-  left: 0%;
-}
-
-h2 {
-  margin: 10px 0;
-  color: black;
-  font-size: 18px;
-  padding-left: 5px;
-}
-
-.carousel-controls {
-  position: absolute;
-  top: 7px;
-  right: 10px;
-  display: flex;
-  gap: 10px;
-}
-
-.carousel-controls button {
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  padding: 0px 5px;
-  @apply bg-gray-200;
-  span {
-    @apply text-white
-  }
-
-}
-
-.carousel {
-  overflow: hidden;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 50%;
-  box-sizing: border-box;
-  padding: 10px;
-}
-
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-image {
-  width: 100%;
-  height: auto;
-}
-
-.card-content {
-  padding: 25px;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-content .category {
-  font-weight: bold;
-  margin-bottom: 5px;
-  @apply text-orange-400
-}
-
-.card-content h3 {
-  margin: 0;
-  font-size: 1rem;
-  @apply text-gray-400
-}
-</style>
+<style lang="scss"></style>

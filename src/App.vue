@@ -21,26 +21,32 @@ export default {
 </script>
 
 <template>
-    <HeaderLayout />
+  <HeaderLayout />
+  <!-- Main Content -->
     <div class="min-h-screen w-creen bg-gray-200">
       <div class="wrapper-page">
         <Loading v-if="loading"></Loading>
         <router-view />
       </div>
-      <Footer></Footer>
-     </div>
+    </div>
+
+
+  <Footer></Footer>
 </template>
 
 <style lang="scss">
-
-.wrapper-page{
+.wrapper-page {
   max-width: 1300px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  transform: translate(22%,5px);
- 
-}
+  transform: translate(22%, 5px);
+  @media (max-width: 768px) { 
+    max-width: 700px;
+    transform: translate(0%, 5px);
+   }
 
+
+}
 </style>

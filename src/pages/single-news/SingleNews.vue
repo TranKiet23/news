@@ -1,8 +1,7 @@
 <template>
-  <div class="mx-auto">
-    <!-- Main Content -->
-    <div class="flex">
-      <div class="w-2/3">
+  <div class="mx-auto p-4">
+    <div class="flex flex-col md:flex-row">
+      <div class="md:w-2/3 w-full">
         <nav class="text-sm mb-4">
           <a href="#" class="text-red-500">Home</a> / <a href="#" class="text-red-500">Category</a> / <a href="#"
             class="text-red-500">Technology</a> / <span class="text-gray-600">News Title</span>
@@ -24,12 +23,12 @@
         </div>
         <div class="mt-8">
           <h2 class="text-2xl font-bold mt-4">Est dolor lorem et ea</h2>
-          <div class="flex mt-4">
-            <div class="w-1/2">
+          <div class="flex flex-col md:flex-row mt-4">
+            <div class="md:w-1/2 w-full">
               <img src="https://placehold.co/400x200" alt="Image of a business meeting"
                 class="w-full h-32 object-cover mb-4">
             </div>
-            <div class="w-1/2 ml-4">
+            <div class="md:w-1/2 w-full md:ml-4">
               <p class="text-gray-600">Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor
                 invidunt ut est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam lorem sed. Magna amet sed
                 rebum eos. Clita no magna no dolor erat diam tempor rebum consetetur, sanctus labore sed nonumy diam lorem
@@ -116,9 +115,9 @@
           </div>
         </div>
       </div>
-      <div class="w-1/3 ml-8 mt-8">
+      <div class="md:w-1/3 w-full md:ml-8 mt-8">
         <!-- Follow Us -->
-        <div class="shadow-md bg-white rounded-lg p-4 mb-4">
+        <div class="shadow-md bg-white rounded-lg p-3 md:p-4 mb-4">
           <h3 class=" text-black text-xl font-bold mb-4">Follow Us</h3>
           <ul class="space-y-2 bg-white">
             <li class="flex items-center space-x-2">
@@ -153,12 +152,11 @@
           <input type="email" placeholder="Your Email" class="border border-gray-300 p-2 rounded-l-lg flex-grow">
           <button type="submit" class="bg-red-500 text-white p-2 rounded-r-lg">Sign Up</button>
         </form>
-      </div>
     </div>
-
+    </div>
+    </div>
   </div>
-
-</div></template>
+</template>
   
 <script>
 export default {
