@@ -22,7 +22,7 @@ export default {
 
 <template>
     <HeaderLayout />
-    <div class="min-h-screen w-creen bg-slate-300">
+    <div class="min-h-screen w-creen bg-gray-200">
       <div class="wrapper-page">
         <Loading v-if="loading"></Loading>
         <router-view />
@@ -34,15 +34,13 @@ export default {
 <style lang="scss">
 
 .wrapper-page{
-
-  max-width: 1280px;
-  position: relative;
-  left: 10%;
-  right: 10%;
-  @media(max-width:1281px) {
-    left: 0%;
-    right: 0%;
-  }
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  transform: translate(22%,5px);
+ 
 }
 
 </style>

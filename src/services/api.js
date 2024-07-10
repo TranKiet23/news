@@ -54,6 +54,9 @@ export default class API  {
             date: 'January 01, 2045',
             title: 'Sanctus amet sed ipsum lorem'
           },
-        // Add more card objects as needed
+      ]
+
+      static buttonList = [
+       'Politics', 'Travel', 'Sports', 'Corporate', 'Technology', 'Entertainment', 'Lifestyle', 'Education' , 'Lifestyle'
       ]
 }

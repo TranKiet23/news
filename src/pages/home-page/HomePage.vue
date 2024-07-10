@@ -73,7 +73,7 @@
 
   <!-- Popular Section -->
   <section>
-    <div class="p-8">
+    <div class="p-5">
       <div class="mx-auto w-full flex">
         <!-- Popular Section -->
         <div class="w-2/3 px-1">
@@ -155,9 +155,10 @@
     </div>
   </section>
   <section>
-    <div class="mx-auto py-3">
+    <div class="mx-auto py-3 p-5 flex">
         <!-- Latest Section -->
-        <div class="flex justify-between items-center mb-4 bg-white">
+        <div class="w-2/3 px-2">
+          <div class="flex justify-between items-center mb-4 bg-white">
             <h2 class="text-2xl font-bold text-black pl-2">Latest</h2>
             <a href="#" class="text-gray-600 pr-2">View All</a>
         </div>
@@ -214,6 +215,28 @@
             </div>
         </div>
       </div>
+      <div class="w-1/3 ml-1">
+        <div class="max-w-md mx-auto rounded bg-white p-4 shadow-md">
+        <h2 class="text-xl font-bold mb-4">Tags</h2>
+          <div class="grid grid-cols-3 gap-2" >
+              <button class="border border-gray-300 rounded px-4 py-2" v-for="item, index in buttonList" :key="index">{{ item }}</button>
+              <!-- <button class="border border-gray-300 rounded px-4 py-2">Business</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Corporate</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Sports</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Health</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Education</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Science</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Technology</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Foods</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Entertainment</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Travel</button>
+              <button class="border border-gray-300 rounded px-4 py-2">Lifestyle</button> -->
+          </div>
+        </div>
+      </div>
+    
+  </div>
+       
   </section>
 </template>
 <script>
@@ -228,7 +251,8 @@ export default {
   setup() {
     return {
       images: ref(API.categories),
-      cardArray: ref(API.cardArray)
+      cardArray: ref(API.cardArray),
+      buttonList: ref(API.buttonList)
     }
   },
 }
