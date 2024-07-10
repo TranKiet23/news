@@ -216,15 +216,23 @@
       </div>
   </section>
 </template>
-<script  setup>
+<script>
 import Carousel from './components/CarouselContent.vue';
 import ImageCarousel from '../../components/ImageCarousel.vue';
 import CarouseBussines from './components/CarouseBussines.vue';
 import API from '@/services/api';
 import { ref } from 'vue';
 
-const images = ref(API.categories)
-const cardArray = ref(API.cardArray)
+export default {
+  components: {  Carousel, ImageCarousel },
+  setup() {
+    return {
+      images: ref(API.categories),
+      cardArray: ref(API.cardArray)
+    }
+  },
+}
+
 
 
 </script>
