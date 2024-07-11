@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="z-index: 1000">
+  <div class="bg-gray-300 fixed w-screen justify-center items-center h-screen" style="z-index: 100000">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       style="margin: auto; display: block" width="150px" height="150px" viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid">
@@ -21,11 +21,7 @@ export default {
 <style lang="scss">
 .container {
   position: fixed;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background-color: #f5f5f5;
+
+  @apply bg-gray-50
 }
 </style>

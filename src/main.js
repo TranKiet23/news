@@ -8,12 +8,12 @@ import qs from 'qs'
 import store from './store';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faRightLeft, faAngleRight, faAngleLeft, faAngleDown  } from "@fortawesome/free-solid-svg-icons";
-import { faUser,  } from "@fortawesome/free-regular-svg-icons";
+import { faPhone, faBars,  faLock, faEye, faEyeSlash, faUnlockKeyhole, faKey, faTableCellsLarge, faShare, faRightFromBracket, faMagnifyingGlass, faPlusCircle, faReply, faGear, faCloudArrowUp, faCirclePlus, faDatabase,faCheck, faPrint, faArrowRotateLeft, faWrench, faTriangleExclamation, faFile, faClock, faShareNodes, faArrowsRotate, faTemperatureThreeQuarters, faRightLeft, faAngleRight, faAngleLeft, faAngleDown  } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEnvelope, faXmarkCircle, faCircleCheck, faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import router from './services/router';
 // Import specific icons
-library.add(faUser, faRightLeft, faAngleRight, faAngleLeft, faAngleDown);
+library.add(faPhone, faBars, faUser, faLock, faEye, faEyeSlash, faUnlockKeyhole, faKey, faEnvelope, faTableCellsLarge, faShare, faRightFromBracket, faXmarkCircle, faMagnifyingGlass, faPlusCircle, faReply, faCircleCheck, faPenToSquare, faGear, faTrashCan, faCloudArrowUp, faCirclePlus, faDatabase,faCheck, faPrint, faArrowRotateLeft, faWrench, faTriangleExclamation, faFile, faClock, faShareNodes, faArrowsRotate, faTemperatureThreeQuarters, faRightLeft, faAngleRight, faAngleLeft, faAngleDown);
 
 
 window._ = _;

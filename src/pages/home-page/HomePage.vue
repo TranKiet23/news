@@ -2,7 +2,7 @@
   <section>
     <div class="mx-auto w-full">
       <div class="content-page">
-        <ImageCarousel :imagesToShow="3" class="display-mb" />
+        <ImageCarousel :imagesToShow="lengthSlider_1"  />
       </div>
       <div class="mx-auto w-full ml-1 md:ml-4">
         <div class="w-full md:flex md:justify-between p-1 items-center">
@@ -46,7 +46,7 @@
           </span>
         </div>
         <div class="featured-content">
-          <ImageCarousel :imagesToShow="4" :containContent="false" />
+          <ImageCarousel :imagesToShow="lengthSlider_2" :containContent="false" />
         </div>
       </div>
     </div>
@@ -227,32 +227,37 @@
           <div class="mt-8">
             <!-- Follow Us -->
             <div class="shadow-md bg-white rounded-lg p-4 mb-4">
-              <h3 class=" text-black text-xl font-bold mb-4">Follow Us</h3>
-              <ul class="space-y-2 bg-white">
-                <li class="flex items-center space-x-2">
-                  <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
-                  <a href="#" class="text-gray-600">12,345 Fans</a>
-                </li>
-                <li class="flex items-center space-x-2">
-                  <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
-                  <a href="#" class="text-gray-600">12,345 Followers</a>
-                </li>
-                <li class="flex items-center space-x-2">
-                  <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
-                  <a href="#" class="text-gray-600">12,345 Connects</a>
-                </li>
-                <li class="flex items-center space-x-2">
-                  <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
+                <h3 class=" text-black text-xl font-bold mb-4">Follow Us</h3>
+                <ul class="grid grid-rows-3 grid-flow-col gap-4">
+                  <li class="flex items-center space-x-2 bg-blue-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
+                    <a href="#" class="text-gray-600">12,345 Fans</a>
+                  </li>
+                  <li class="flex items-center space-x-2 bg-orange-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
+                    <a href="#" class="text-gray-600">12,345 Followers</a>
+                  </li>
+                  <li class="flex items-center space-x-2 bg-blue-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
+                    <a href="#" class="text-gray-600">12,345 Connects</a>
+                  </li>
+                  <li class="flex items-center space-x-2 bg-blue-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
 
-                  <a href="#" class="text-gray-600">12,345 Followers</a>
-                </li>
-                <li class="flex items-center space-x-2">
-                  <img src="../../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
+                    <a href="#" class="text-gray-600">12,345 Followers</a>
+                  </li>
+                  <li class="flex items-center space-x-2 bg-red-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
 
-                  <a href="#" class="text-gray-600">12,345 Subscribers</a>
-                </li>
-              </ul>
-            </div>
+                    <a href="#" class="text-gray-600">12,345 Subscribers</a>
+                  </li>
+                  <li class="flex items-center space-x-2 bg-red-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
+
+                    <a href="#" class="text-gray-600">12,345 Subscribers</a>
+                  </li>
+                </ul>
+              </div>
             <!-- Newsletter -->
             <div class="bg-white shadow-md rounded-lg p-4">
               <h3 class="text-xl font-bold mb-4 text-black">Newsletter</h3>
@@ -331,9 +336,13 @@
        
         </div>
       </div>
+      
       <div class="md:w-1/3 w-full ml-1 py-3">
+        <div class="p-2">
+          <img src="https://placehold.co/400x250" alt="Description of the image" class="w-full h-32 object-cover rounded">
+        </div>
         <!-- Tranding -->
-        <div class="mx-auto p-2 mt[-10px] w-full">
+        <div class="mx-auto py-2 mt[-18px] w-full">
           <div class="bg-white rounded shadow-md p-2">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Tranding</h2>
             <div class="space-y-4">
@@ -347,8 +356,9 @@
             </div>
           </div>
         </div>
+        
 
-        <div class="max-w-md mx-auto rounded w-full bg-white p-6  shadow-md">
+        <div class="md:max-w-md mx-auto rounded mt-1 md:mt-2 w-full bg-white p-4  shadow-md">
           <h2 class="text-xl font-bold mb-4 text-black">Tags</h2>
           <div class="grid grid-cols-3 gap-2">
             <button class="border border-gray-300 rounded px-4 py-2" v-for="item, index in buttonList" :key="index">{{
@@ -373,16 +383,25 @@ export default {
   components: { Carousel, ImageCarousel },
   setup() {
     const images = ref([]);
-    const cardArray = ref([API.bestSeller]);
+    const cardArray = ref(API.bestSeller);
     const buttonList = ref([]);
     const errorTag = ref(null);
     const errorCate = ref(null);
     const store = useStore();
     const windowWidth = ref(window.innerWidth);
+    const lengthSlider_1 = ref(3);
+    const lengthSlider_2 = ref(4);
 
     const handleResize = () => {
-
+      console.log(windowWidth.value);
       windowWidth.value = window.innerWidth;
+      if(windowWidth.value > 768){
+        lengthSlider_1.value = 3;
+        lengthSlider_2.value= 4
+      }else{
+        lengthSlider_1.value = 1
+        lengthSlider_2.value= 1
+      }
     };
   
     const fetchTag = async () => {
@@ -411,9 +430,15 @@ export default {
 
     onMounted(() => {
       window.addEventListener('resize', handleResize);
+      if(windowWidth.value > 768){
+        lengthSlider_1.value = 3;
+        lengthSlider_2.value= 4
+      }else{
+        lengthSlider_1.value = 1
+        lengthSlider_2.value= 1
+      }
       fetchTag();
       fetchCategory();
-      console.log(cardArray);
     });
     onUnmounted(() => {
       window.removeEventListener('resize', handleResize);
@@ -426,6 +451,8 @@ export default {
       buttonList,
       errorTag,
       errorCate,
+      lengthSlider_1,
+      lengthSlider_2
     };
   },
 };
@@ -457,7 +484,7 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    margin: 5px 40px 5px 11px;
+    margin: 0px 8px 0px 8px;
     align-items: center;
     justify-items: center;
     background-color: white;
