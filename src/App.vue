@@ -34,11 +34,13 @@ export default {
 </script>
 <template>
   <HeaderLayout />
+
   <!-- Main Content -->
-    <div class="min-h-screen w-creen bg-gray-200">
+    <div class="min-h-screen w-creen bg-gray-50">
+  <Loading v-if="loading"></Loading>
+
       <div class="wrapper-page">
-        <Loading v-if="loading"></Loading>
-        <router-view  @load-data="functionLoad" />
+        <router-view  />
       </div>
     </div>
 
@@ -56,7 +58,7 @@ export default {
   transform: translate(22%, 5px);
   @media (max-width: 768px) { 
     max-width: 710px;
-    transform: translate(4%, 5px);
+    transform: translate(1%, 1%);
    }
 
 

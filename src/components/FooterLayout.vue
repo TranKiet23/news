@@ -8,10 +8,19 @@
         </div>
         <p class="mt-2 text-gray-600">Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed kasd et</p>
         <div class="flex justify-center md:justify-start space-x-4 mt-4">
-                    <img src="../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
-                      <img src="../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
-                      <img src="../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
-                      <img src="../assets/imgs/twitter.svg" alt="fb" class="w-4 h-4">
+          <span class="border border-gray-300 p-1 rounded">
+            <img src="../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
+          </span>     
+          <span class="border border-gray-300 p-1 rounded">
+            <img src="../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
+          </span>
+          <span class="border border-gray-300 p-1 rounded">
+            <img src="../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
+          </span>
+          <span class="border border-gray-300 p-1 rounded">
+            <img src="../assets/imgs/twitter.svg" alt="fb" class="w-4 h-4">
+          </span>
+                     
 
         </div>
       </div>
@@ -36,8 +45,8 @@
   
       <section class="w-full md:w-1/4 pl-2">
         <h2 class="text-ms md:text-xl font-semibold text-gray-800 mb-4">Quick Links</h2>
-        <ul class="list-disc list-inside text-gray-600">
-          <li v-for="link in quickLinks" :key="link">{{ link }}</li>
+        <ul class="list-inside text-gray-600">
+          <li v-for="link in quickLinks" :key="link"> <font-awesome-icon :icon="['fas', 'angle-right']" class="mr-2 text-base"></font-awesome-icon>{{ link }}</li>
         </ul>
       </section>
     </div>

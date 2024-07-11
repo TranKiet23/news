@@ -8,7 +8,7 @@
         :key="index">
         <img :src="image.url" :alt="image.url" class="w-1/3 object-cover">
         <div class="w-2/3 p-4">
-          <h3 class="text-gray-800 font-semibold">Lorem ipsum dolor sit amet</h3>
+          <h3 class="text-gray-800 font-semibold">{{ image.sub }}</h3>
           <p class="text-gray-600">{{ image.title }}</p>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default {
       return this.images.slice(start, end);
     },
     gridClass () {
-      return this.currentShow > 2 ? `grid grid-cols-1 md:grid-cols-${this.imagesToShow} gap-5` : 'grid grid-cols-1 gap-4';
+      return this.currentShow > 1 ? `grid grid-cols-1 md:grid-cols-${this.imagesToShow} gap-5` : 'grid grid-cols-1 gap-4';
     }
   },
   created()
@@ -74,7 +74,6 @@ export default {
     checkScreenWidth () {
       let value = window.innerWidth > 768 ? this.imagesToShow : 1;
       this.currentShow = value;
-      console.log("🚀 ~ checkScreenWidth ~  this.currentShow:",  this.currentShow)
     },
    
     nextImage() {

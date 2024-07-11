@@ -44,7 +44,7 @@
                 News</router-link>
               <a class="mr-2">
                 <div
-                  class="flex h-30 cursor-pointer align-middle no-underline hover:text-gray-900 border-white justify-center items-center dropdown-hard">
+                  class="flex h-30 cursor-pointer align-middle no-underline ext-gray-700 hover:text-red-300 border-white justify-center items-center dropdown-hard">
                   <span class="text-gray-500">
                     Dropdown
                     <font-awesome-icon :icon="['fas', 'angle-down']" class="fs-13 text-gray-700" />
