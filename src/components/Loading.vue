@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="z-index: 100000">
+  <div class="container" style="z-index: 1000">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       style="margin: auto; display: block" width="150px" height="150px" viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid">

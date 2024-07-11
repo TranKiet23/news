@@ -4,7 +4,7 @@
       <div class="content-page">
         <ImageCarousel :imagesToShow="3" class="display-mb" />
       </div>
-      <div class="w-full category">
+      <div class="mx-auto w-full ml-1 md:ml-4">
         <div class="w-full md:flex md:justify-between p-1 items-center">
           <div class="md:w-8/12 w-full">
             <div>
@@ -19,7 +19,7 @@
               </div>
               <div>
                 <a href="#" class="block relative" v-for="item, i in images" :key="i">
-                  <img :src="item.url" alt="Business" class="w-full h-32 md:h-48 object-cover">
+                  <img :src="item.url" alt="Business" class="w-full h-16 md:h-20 object-cover">
                   <span class="absolute inset-0 bg-black opacity-50"></span>
                   <span
                     class="absolute inset-0 flex items-center justify-center text-white font-semibold text-sm md:text-lg">
@@ -187,7 +187,7 @@
 
   <!-- Popular Section -->
   <section>
-    <div class="p-5">
+    <div class="mx-auto px-3 py-8">
       <div class="mx-auto w-full flex md:flex-row flex-col">
         <!-- Popular Section -->
         <div class="md:w-2/3 w-full px-1">
@@ -269,7 +269,8 @@
     </div>
   </section>
   <section>
-    <div class="mx-auto w-full flex md:flex-row flex-col ">
+    <div class="px-3 ">
+    <div class="mx-auto w-full flex md:flex-row flex-col md:item-center">
       <!-- Latest Section -->
       <div class="md:w-2/3 w-full px-2 pb-4">
         <div class="flex justify-between items-center mb-4 bg-white rounded">
@@ -327,15 +328,16 @@
               <h3 class="text-lg font-bold mt-2">Lorem ipsum dolor sit amet consec adipis elit</h3>
             </div>
           </div>
+       
         </div>
       </div>
       <div class="md:w-1/3 w-full ml-1 py-3">
-        <!-- Trending -->
+        <!-- Tranding -->
         <div class="mx-auto p-2 mt[-10px] w-full">
           <div class="bg-white rounded shadow-md p-2">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">Trending</h2>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Tranding</h2>
             <div class="space-y-4">
-              <div class="flex" v-for="trend, i in trendings" :key="i">
+              <div class="flex" v-for="trend, i in cardArray" :key="i">
                 <img :src="trend.url" alt="Image" class="w-20 h-20 object-cover rounded-md">
                 <div class="ml-4">
                   <p class="text-sm text-red-600 font-bold">{{ trend.title }}/ {{ trend.date }}</p>
@@ -350,44 +352,85 @@
           <h2 class="text-xl font-bold mb-4 text-black">Tags</h2>
           <div class="grid grid-cols-3 gap-2">
             <button class="border border-gray-300 rounded px-4 py-2" v-for="item, index in buttonList" :key="index">{{
-              item }}</button>
+              item.value }}</button>
 
           </div>
         </div>
       </div>
-
+      </div>
     </div>
 
   </section>
 </template>
 <script>
-import Carousel from './components/CarouselContent.vue';
+import Carousel from '../home-page/components/CarouselContent.vue';
 import ImageCarousel from '../../components/ImageCarousel.vue';
-
+import { useStore } from 'vuex';
+import { ref, onMounted, onUnmounted   } from 'vue';
+import axios from 'axios';
 import API from '@/services/api';
-import { ref } from 'vue';
-
 export default {
-  components: {ImageCarousel, Carousel},
+  components: { Carousel, ImageCarousel },
   setup() {
-    const images = ref(API.categories)
-    const buttonList = ref(API.tagList)
-    const trendings = ref(API.bestSeller);
-    
+    const images = ref([]);
+    const cardArray = ref([API.bestSeller]);
+    const buttonList = ref([]);
+    const errorTag = ref(null);
+    const errorCate = ref(null);
+    const store = useStore();
+    const windowWidth = ref(window.innerWidth);
+
+    const handleResize = () => {
+
+      windowWidth.value = window.innerWidth;
+    };
+  
+    const fetchTag = async () => {
+      store.dispatch('load', 'tag')
+      try {
+        const response = await axios.get('https://668f5e0680b313ba0917d941.mockapi.io/api/v1/news/tags');
+        buttonList.value = response.data;
+        store.dispatch('unload', 'tag')
+      } catch (err) {
+        errorTag.value = err.message;
+        store.dispatch('unload', 'tag')
+      }
+    };
+
+    const fetchCategory = async () => {
+      store.dispatch('load', 'categories')
+      try {
+        const response = await axios.get('https://668f5e0680b313ba0917d941.mockapi.io/api/v1/news/categories');
+        images.value = response.data;
+        store.dispatch('unload', 'categories')
+      } catch (err) {
+        errorCate.value = err.message;
+        store.dispatch('unload', 'categories')
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener('resize', handleResize);
+      fetchTag();
+      fetchCategory();
+      console.log(cardArray);
+    });
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize);
+    });
+
+
     return {
       images,
+      cardArray,
       buttonList,
-      trendings,
+      errorTag,
+      errorCate,
     };
-  }
+  },
 };
 </script>
 <style lang="scss">
-.category {
-  position: relative;
-  right: 3%;
-  margin-top: -20px;
-}
 
 .image-container {
   padding-bottom: 5px;

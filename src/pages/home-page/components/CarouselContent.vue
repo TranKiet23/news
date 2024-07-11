@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel justify-center pl-4 pt-3 md:pl-0 md:pt-0">
+  <div class="carousel justify-center ml-2 pt-3 md:pl-0 md:pt-0">
     <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
       <div class="carousel-item rounded" v-for="(image, index) in images" :key="index">
         <img :src="image.url" :alt="'Image ' + index" class="w-full h-64 md:h-96 object-cover">
