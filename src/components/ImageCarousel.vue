@@ -21,7 +21,7 @@
 </template>
   
 <script>
-import { ref } from "vue";
+import { ref } from "vue"
 import API from "@/services/api";
 export default {
   props: {
