@@ -5,15 +5,15 @@
       <a href="#" class="text-red-500">Home</a> / <a href="#" class="text-red-500">Category</a> 
     </nav>
     <section>
-    <div class="mx-auto w-full">
+      <div class="mx-auto w-full ml-1 md:ml-4">
       <div class="content-page">
         <ImageCarousel :imagesToShow="3" class="display-mb" />
       </div>
-      <div class="w-full category">
+      <div class="w-full mx-auto">
         <div class="w-full md:flex md:justify-between p-1 items-center">
           <div class="md:w-8/12 w-full">
             <div>
-              <Carousel />
+              <CarouselContent />
             </div>
           </div>
           <div class="md:w-4/12 w-full">
@@ -24,7 +24,7 @@
               </div>
               <div>
                 <a href="#" class="block relative" v-for="item, i in images" :key="i">
-                  <img :src="item.url" alt="Business" class="w-full h-32 md:h-48 object-cover">
+                  <img :src="item.url" alt="Business" class="w-full h-16 md:h-20 object-cover">
                   <span class="absolute inset-0 bg-black opacity-50"></span>
                   <span
                     class="absolute inset-0 flex items-center justify-center text-white font-semibold text-sm md:text-lg">
@@ -359,7 +359,7 @@
           <h2 class="text-xl font-bold mb-4 text-black">Tags</h2>
           <div class="grid grid-cols-3 gap-2">
             <button class="border border-gray-300 rounded px-4 py-2" v-for="item, index in buttonList" :key="index">{{
-              item }}</button>
+              item.value }}</button>
 
           </div>
         </div>
@@ -370,26 +370,62 @@
   </div>
 </template>
 <script>
-import Carousel from '../home-page/components/CarouselContent.vue';
+import CarouselContent from '../home-page/components/CarouselContent.vue';
 import ImageCarousel from '../../components/ImageCarousel.vue';
-import CarouseBussines from '../home-page/components/CarouseBussines.vue';
-import API from '@/services/api';
-import { ref } from 'vue';
-
+import { ref, onMounted  } from 'vue';
+import axios from 'axios';
+import { useStore } from 'vuex';
 export default {
-  components: { Carousel, ImageCarousel },
-  setup() {
+  components: { CarouselContent, ImageCarousel },
+    setup() {
+    const images = ref([]);
+    const buttonList = ref([]);
+    const error = ref(null);
+    const store = useStore();
+
+    const fetchData = async () => {
+      store.dispatch('load', 'tag')
+      try {
+        const response = await axios.get('https://668f5e0680b313ba0917d941.mockapi.io/api/v1/news/tags');
+        buttonList.value = response.data;
+        store.dispatch('unload', 'tag')
+        
+      } catch (err) {
+        error.value = err.message;
+        store.dispatch('unload', 'tag')
+        
+      }
+    };
+
+    const fetchCategory = async () => {
+      store.dispatch('load', 'categories')
+      try {
+        const response = await axios.get('https://668f5e0680b313ba0917d941.mockapi.io/api/v1/news/categories');
+        images.value = response.data;
+          store.dispatch('unload', 'categories')
+        
+      } catch (err) {
+        errorCate.value = err.message;
+          store.dispatch('unload', 'categories')
+        
+      }
+    };
+
+    onMounted(() => {
+      fetchData();
+      fetchCategory()
+    });
+
     return {
-      images: ref(API.categories),
-      cardArray: ref(API.cardArray),
-      buttonList: ref(API.tagList)
-    }
+      images,
+      buttonList,
+      error,
+    };
   },
-}
-
-
-
+};
 </script>
+
+
 <style lang="scss">
 .category {
   position: relative;
