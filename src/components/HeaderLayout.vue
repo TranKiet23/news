@@ -3,9 +3,9 @@
     <!-- Header Section -->
     <div class="w-full bg-f5f5f5  flex justify-between items-center">
       <div class="flex justify-start items-center">
-        <button type="button" class="border-red mx-8 py-2 px-4 bg-red-500 cursor-pointer">
+        <a href="/" class="border-red mx-8 py-2 px-4 bg-red-500 cursor-pointer">
           <span class="text-white text-xl">Tranding</span>
-        </button>
+        </a>
         <div class="group-content-header text-center">
           <div class="flex items-center">
             <div class="border p-2 mx-3 border-gray-200 bg-f5f5f5 cursor-pointer">
