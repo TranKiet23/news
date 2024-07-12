@@ -36,7 +36,7 @@ export default {
   <HeaderLayout />
 
   <!-- Main Content -->
-  <div class="min-h-screen w-creen bg-gray-50">
+  <div class="min-h-screen w-creen bg-gray-100">
     <Loading v-if="loading"></Loading>
 
     <div class="wrapper-page">
