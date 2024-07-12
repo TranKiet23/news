@@ -50,8 +50,8 @@
         </ul>
       </section>
       </div>
-      <div class="mx-auto px-6 w-full bg-gray-200 h-24">
-        <div class="text-center py-6 text-base md:text-sm text-gray-700">
+      <div class="mx-auto px-6 w-full bg-gray-200 h-16 md:h-24">
+        <div class="text-center py-6 text-sm text-gray-700">
           <p>© <span class="text-red-600">Your Site Name.</span> All Rights Reserved. Designed by <span class="text-red-600">HTML Codex</span></p>
 
         </div>
@@ -104,7 +104,7 @@
 .fs-icon {
   font-size: 10px;
   @media (max-width: 768px) {
-    font-size: 8px;
+    font-size: 11px;
   }
 }
 </style>
