@@ -1,6 +1,6 @@
 <template>
     <footer>
-      <div class="mx-auto px-6 py-8 bg-white md:flex w-full">
+      <div class="mx-auto px-4 py-8 bg-white md:flex w-full">
       <!-- Header Section -->
       <div class="text-center md:text-left mb-8 w-full md:px-2 md:w-1/4">
         <div class="text-ms md:text-xl font-bold text-red-600">
@@ -50,7 +50,7 @@
         </ul>
       </section>
       </div>
-      <div class="mx-auto px-6 w-full bg-gray-200 h-16 md:h-24">
+      <div class="mx-auto px-4 w-full bg-gray-200 h-20 md:h-24">
         <div class="text-center py-6 text-sm text-gray-700">
           <p>© <span class="text-red-600">Your Site Name.</span> All Rights Reserved. Designed by <span class="text-red-600">HTML Codex</span></p>
 
