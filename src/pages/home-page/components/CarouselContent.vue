@@ -3,7 +3,7 @@
     <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
       <div class="carousel-item rounded" v-for="(image, index) in images" :key="index">
         <img :src="image.url" :alt="'Image ' + index" class="w-full h-64 md:h-96 object-cover">
-        <div class="title absolute bottom-12 left-0 w-full text-center p-4 bg-black bg-opacity-50">
+        <div class="title absolute bottom-12 left-0 w-full text-center p-4 bg-gray-400 bg-opacity-50">
           <p class="text-white text-sm md:text-lg">Thurday / 2024</p>
           <span class="text-white text-lg md:text-2xl font-semibold">
             {{image.title}}

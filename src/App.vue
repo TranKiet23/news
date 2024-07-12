@@ -36,15 +36,13 @@ export default {
   <HeaderLayout />
 
   <!-- Main Content -->
-    <div class="min-h-screen w-creen bg-gray-50">
+    <div class="min-h-screen w-creen bg-gray-100">
   <Loading v-if="loading"></Loading>
 
       <div class="wrapper-page">
         <router-view  />
       </div>
     </div>
-
-
   <Footer></Footer>
 </template>
 
@@ -55,11 +53,15 @@ export default {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  transform: translate(22%, 5px);
-  @media (max-width: 768px) { 
-    max-width: 710px;
+  transform: translate(21%, 5px);
+  @media (max-width: 769px) { 
+    max-width: 700px;
     transform: translate(1%, 1%);
-   }
+  }
+  @media (max-width: 600px) { 
+    max-width: 575px;
+    transform: translate(1%, 1%);
+  }
 
 
 }

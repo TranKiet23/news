@@ -1,8 +1,8 @@
 <template>
   <div class="mx-auto px-6 py-8">
     <div :class="gridClass">
-      <button class="border absolute z-10 mr-[10px]  p-2 border-gray-400 transparent cursor-pointer" @click="prevImage">
-        <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-700" />
+      <button class="border absolute bg-button absolute z-10 mr-[10px] mt-2 md:mt-8 p-2 border-gray-400 bg-blue-200 hover:bg-gray-300 transparent cursor-pointer" @click="prevImage">
+        <font-awesome-icon :icon="['fas', 'angle-left']" class="text-white" />
       </button>
       <div class="flex bg-white rounded-lg shadow-md overflow-hidden" v-for="(image, index) in visibleImages"
         :key="index">
@@ -12,8 +12,8 @@
           <p class="text-gray-600">{{ image.title }}</p>
         </div>
       </div>
-      <button @click="nextImage" class="border absolute z-10 p-2 right-6  border-gray-400 transparent cursor-pointer">
-        <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-700" />
+      <button @click="nextImage" class="border absolute bg-button z-10 p-2 right-5 mt-2 md:mt-8  border-gray-400 transparent cursor-pointer bg-blue-200 hover:bg-gray-300">
+        <font-awesome-icon :icon="['fas', 'angle-right']" class="text-white" />
       </button>
     </div>
 
@@ -91,4 +91,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+ .bg-button {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+</style>

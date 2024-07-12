@@ -1,18 +1,19 @@
 <template>
   <section>
+    <!-- Carousel -->
     <div class="mx-auto w-full">
-      <div class="content-page">
+      <div class="">
         <ImageCarousel :imagesToShow="lengthSlider_1"  />
       </div>
       <div class="mx-auto w-full ml-1 md:ml-4">
-        <div class="w-full md:flex md:justify-between p-1 items-center">
+        <div class="w-full md:flex md:justify-between p-0 md:p-2 items-center">
           <div class="md:w-8/12 w-full">
             <div>
               <Carousel />
             </div>
           </div>
           <div class="md:w-4/12 w-full">
-            <div class="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-8">
+            <div class="md:max-w-sm  mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-8">
               <div class="p-4 border-b flex flex-row justify-between w-full">
                 <h2 class="text-xl font-semibold text-gray-800">Categories</h2>
                 <a href="#" class="text-sm text-gray-600 hover:text-gray-800">View All</a>
@@ -35,7 +36,7 @@
   </section>
   <!-- Featured -->
   <section>
-    <div class="w-full">
+    <div class="mx-auto px-2 py-0 md:py-3">
       <div class="featured">
         <div class="sub-title rounded-lg">
           <h2>
@@ -53,7 +54,7 @@
   </section>
   <!-- bussines && sport -->
   <section>
-    <div class="mx-auto px-3 py-8">
+    <div class="mx-auto px-3 py-4 md:py-3">
       <div class="w-full flex gap-8 md:flex-row flex-col">
         <!-- Section: Business -->
         <div class="w-full md:w-1/2">
@@ -61,9 +62,9 @@
             <div class="w-full bg-white flex justify-between items-center rounded">
               <h2 class="text-2xl pl-1 font-bold text-black">Business</h2>
               <div class="pr-1">
-                <button class="p-2 mx-1 bg-slate-300">
-                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-700" /> </button>
-                    <button class="p-2 bg-slate-300"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-700" /></button>
+                <button class="p-2 mx-1 bg-button">
+                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-white" /> </button>
+                    <button class="p-2 bg-button"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-white" /></button>
               </div>
             </div>
           </div>
@@ -92,9 +93,9 @@
             <div class="w-full bg-white flex justify-between items-center rounded">
               <h2 class="text-2xl pl-1 font-bold text-black">Technology</h2>
               <div class="pr-1">
-                <button class="p-2 mx-1 bg-slate-300">
-                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-700" /> </button>
-                    <button class="p-2 bg-slate-300"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-700" /></button>
+                <button class="p-2 mx-1 bg-button">
+                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-white" /> </button>
+                    <button class="p-2 bg-button"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-white" /></button>
               </div>
             </div>
           </div>
@@ -125,9 +126,9 @@
             <div class="w-full bg-white flex justify-between items-center rounded">
               <h2 class="text-2xl pl-1 font-bold text-black">Entertainment</h2>
               <div class="pr-1">
-                <button class="p-2 mx-1 bg-slate-300">
-                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-700" /> </button>
-                    <button class="p-2 bg-slate-300"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-700" /></button>
+                <button class="p-2 mx-1 bg-button">
+                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-white" /> </button>
+                    <button class="p-2 bg-button"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-white" /></button>
               </div>
             </div>
           </div>
@@ -156,9 +157,9 @@
             <div class="w-full bg-white flex justify-between items-center rounded">
               <h2 class="text-2xl pl-1 font-bold text-black">Sport</h2>
               <div class="pr-1">
-                <button class="p-2 mx-1 bg-slate-300">
-                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-700" /> </button>
-                    <button class="p-2 bg-slate-300"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-700" /></button>
+                <button class="p-2 mx-1 bg-button">
+                  <font-awesome-icon :icon="['fas', 'angle-left']" class="text-white" /> </button>
+                    <button class="p-2 bg-button"> <font-awesome-icon :icon="['fas', 'angle-right']" class="text-white" /></button>
               </div>
             </div>
           </div>
@@ -185,12 +186,11 @@
     </div>
   </section>
 
-  <!-- Popular Section -->
   <section>
-    <div class="mx-auto px-3 py-8">
+    <div class="mx-auto px-3 py-4 md:py-3">
       <div class="mx-auto w-full flex md:flex-row flex-col">
         <!-- Popular Section -->
-        <div class="md:w-2/3 w-full px-1">
+        <div class="md:w-2/3 w-full">
           <div class="flex justify-between items-center mb-4 bg-white rounded">
             <h2 class="text-2xl text-black font-bold ml-2">Popular</h2>
             <a href="#" class="text-gray-600 mr-2 cur">View All</a>
@@ -233,16 +233,16 @@
                     <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
                     <a href="#" class="text-gray-600">12,345 Fans</a>
                   </li>
-                  <li class="flex items-center space-x-2 bg-orange-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
+                  <li class="flex items-center space-x-2 bg-red-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
                     <a href="#" class="text-gray-600">12,345 Followers</a>
                   </li>
-                  <li class="flex items-center space-x-2 bg-blue-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
+                  <li class="flex items-center space-x-2 bg-orange-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
                     <a href="#" class="text-gray-600">12,345 Connects</a>
                   </li>
                   <li class="flex items-center space-x-2 bg-blue-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
+                    <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
 
                     <a href="#" class="text-gray-600">12,345 Followers</a>
                   </li>
@@ -251,8 +251,8 @@
 
                     <a href="#" class="text-gray-600">12,345 Subscribers</a>
                   </li>
-                  <li class="flex items-center space-x-2 bg-red-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
+                  <li class="flex items-center space-x-2 bg-orange-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
 
                     <a href="#" class="text-gray-600">12,345 Subscribers</a>
                   </li>
@@ -274,7 +274,7 @@
     </div>
   </section>
   <section>
-    <div class="px-3 ">
+    <div class="px-3">
     <div class="mx-auto w-full flex md:flex-row flex-col md:item-center">
       <!-- Latest Section -->
       <div class="md:w-2/3 w-full px-2 pb-4">
@@ -338,7 +338,7 @@
       </div>
       
       <div class="md:w-1/3 w-full ml-1 py-3">
-        <div class="p-2">
+        <div class="p-1">
           <img src="https://placehold.co/400x250" alt="Description of the image" class="w-full h-32 object-cover rounded">
         </div>
         <!-- Tranding -->
@@ -357,7 +357,7 @@
           </div>
         </div>
         
-
+        <!-- Tag -->
         <div class="md:max-w-md mx-auto rounded mt-1 md:mt-2 w-full bg-white p-4  shadow-md">
           <h2 class="text-xl font-bold mb-4 text-black">Tags</h2>
           <div class="grid grid-cols-3 gap-2">
@@ -393,15 +393,8 @@ export default {
     const lengthSlider_2 = ref(4);
 
     const handleResize = () => {
-      console.log(windowWidth.value);
       windowWidth.value = window.innerWidth;
-      if(windowWidth.value > 768){
-        lengthSlider_1.value = 3;
-        lengthSlider_2.value= 4
-      }else{
-        lengthSlider_1.value = 1
-        lengthSlider_2.value= 1
-      }
+      checkCondition()
     };
   
     const fetchTag = async () => {
@@ -415,6 +408,16 @@ export default {
         store.dispatch('unload', 'tag')
       }
     };
+
+    const checkCondition = () => {
+      if(windowWidth.value > 768){
+        lengthSlider_1.value = 3;
+        lengthSlider_2.value= 4
+      }else{
+        lengthSlider_1.value = 1
+        lengthSlider_2.value= 1
+      }
+    }
 
     const fetchCategory = async () => {
       store.dispatch('load', 'categories')
@@ -430,13 +433,7 @@ export default {
 
     onMounted(() => {
       window.addEventListener('resize', handleResize);
-      if(windowWidth.value > 768){
-        lengthSlider_1.value = 3;
-        lengthSlider_2.value= 4
-      }else{
-        lengthSlider_1.value = 1
-        lengthSlider_2.value= 1
-      }
+      checkCondition()
       fetchTag();
       fetchCategory();
     });

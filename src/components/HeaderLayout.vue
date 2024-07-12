@@ -8,11 +8,11 @@
         </a>
         <div class="group-content-header text-center">
           <div class="flex items-center">
-            <div class="border p-2 mx-3 border-gray-200 bg-f5f5f5 cursor-pointer">
-              <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-300" />
+            <div class="border p-2 mx-3 border-gray-300 bg-f5f5f5 cursor-pointer">
+              <font-awesome-icon :icon="['fas', 'angle-left']" class="text-gray-400" />
             </div>
-            <div class="border p-2 text-center mx-2 border-gray-200 bg-f5f5f5 cursor-pointer">
-              <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-300" />
+            <div class="border p-2 text-center mx-2 border-gray-300 bg-f5f5f5 cursor-pointer">
+              <font-awesome-icon :icon="['fas', 'angle-right']" class="text-gray-400" />
             </div>
             <div class="content ml-3 display-mb">
               <span class="fs-13 text-gray-500">Labore sit justo amet eos sed, ety sanctus dolor diam eos</span>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="right-header mr-2">
-        <div class="text-gray-600">Monday, January 01, 2045</div>
+        <div class="text-gray-600 fs-13">Monday, January 01, 2045</div>
       </div>
     </div>
     <header class="bg-white shadow">
@@ -35,12 +35,12 @@
         </div>
         <nav class="hidden sm:flex sm:items-center space-x-6 cursor-pointer">
               <router-link class="text-gray-700 hover:text-red-300"
-                :class="{ 'bg-red-500 p-1 text-white': $route.name === 'HomePage' }" :to="'/'">Home</router-link>
+                :class="{ 'bg-red-500 px-1 py-2 text-white rounded': $route.name === 'HomePage' }" :to="'/'">Home</router-link>
               <router-link class="text-gray-700 hover:text-red-300"
-                :class="{ 'bg-red-500 p-1 text-white': $route.name === 'Category' }"
+                :class="{ 'bg-red-500 px-1 py-2 text-white rounded': $route.name === 'Category' }"
                 :to="'/category'">Categories</router-link>
               <router-link class="text-gray-700 hover:text-red-300"
-                :class="{ 'bg-red-500 p-1 text-white': $route.name === 'SingleNew' }" :to="'/single-new'">Single
+                :class="{ 'bg-red-500 px-1 py-2 text-white rounded': $route.name === 'SingleNew' }" :to="'/single-new'">Single
                 News</router-link>
               <a class="mr-2">
                 <div
@@ -71,11 +71,11 @@
 
       </div>
       <nav :class="{ 'hidden': !isMenuOpen, 'block': isMenuOpen }" class="sm:hidden bg-white shadow-md">
-        <router-link :class="{ 'bg-red-500 p-1 text-white': $route.name === 'HomePage' }" :to="'/'"
+        <router-link :class="{ 'bg-red-500 p-1 text-white rounded': $route.name === 'HomePage' }" :to="'/'"
           class="block px-6 py-2 text-gray-700 hover:text-red-300">Home</router-link>
-        <router-link :class="{ 'bg-red-500 p-1 text-white': $route.name === 'Category' }" :to="'/category'"
+        <router-link :class="{ 'bg-red-500 p-1 text-white rounded': $route.name === 'Category' }" :to="'/category'"
           class="block px-6 py-2 text-gray-700 hover:text-red-300">Categories</router-link>
-        <router-link :class="{ 'bg-red-500 p-1 text-white': $route.name === 'SingleNew' }" :to="'/single-new'"
+        <router-link :class="{ 'bg-red-500 p-1 text-white rounded': $route.name === 'SingleNew' }" :to="'/single-new'"
           class="block px-6 py-2 text-gray-700 hover:text-red-300">Single News</router-link>
         <a class="block px-6 py-2 text-gray-700 hover:text-red-300">Dropdown</a>
         <a class="block px-6 py-2 text-gray-700 hover:text-red-300">Contact</a>
@@ -97,9 +97,6 @@ export default {
       isMenuOpen.value = !isMenuOpen.value;
     };
 
-
-
-
     return {
       isMenuOpen,
       toggleMenu,
@@ -114,7 +111,10 @@ export default {
 }
 
 .fs-13 {
-  font-size: 12px;
+  font-size: 13px;
+  @media (max-width:768px) {
+    font-size: 11px;
+  }
 }
 
 .display-mb {
@@ -160,4 +160,6 @@ export default {
       @apply text-blue-500;
     }
   }
+
+ 
 }</style>

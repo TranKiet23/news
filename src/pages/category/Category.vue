@@ -7,7 +7,6 @@
     </nav>
 
     <!-- list -->
-
     <section>
       <div class="mx-auto xl:w-full p-5 mr-2 md:mr-0 md:p-3 w-full flex xl:flex-row flex-col ">
         <!-- Technology -->
@@ -55,16 +54,16 @@
                     <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
                     <a href="#" class="text-gray-600">12,345 Fans</a>
                   </li>
-                  <li class="flex items-center space-x-2 bg-orange-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
+                  <li class="flex items-center space-x-2 bg-red-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
                     <a href="#" class="text-gray-600">12,345 Followers</a>
                   </li>
-                  <li class="flex items-center space-x-2 bg-blue-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
+                  <li class="flex items-center space-x-2 bg-orange-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
                     <a href="#" class="text-gray-600">12,345 Connects</a>
                   </li>
                   <li class="flex items-center space-x-2 bg-blue-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
+                    <img src="../../assets/imgs/fb.svg" alt="fb" class="w-4 h-4">
 
                     <a href="#" class="text-gray-600">12,345 Followers</a>
                   </li>
@@ -73,8 +72,8 @@
 
                     <a href="#" class="text-gray-600">12,345 Subscribers</a>
                   </li>
-                  <li class="flex items-center space-x-2 bg-red-300 p-2 rounded-sm">
-                    <img src="../../assets/imgs/youtube.svg" alt="fb" class="w-4 h-4">
+                  <li class="flex items-center space-x-2 bg-orange-300 p-2 rounded-sm">
+                    <img src="../../assets/imgs/instagram.svg" alt="fb" class="w-4 h-4">
 
                     <a href="#" class="text-gray-600">12,345 Subscribers</a>
                   </li>

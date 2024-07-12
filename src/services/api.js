@@ -14,8 +14,8 @@ export default class API  {
 
       static contentList = [
         { url: portrant,  title: "Product name is quite long in some caces. And the news", className: "object-fit: cover" },
-        { url: portrant,  title: "Product name is quite long in some caces.", className: "object-fit: cover" },
-        { url: portrant,  title: "Product name is quite long in some caces.", className: "object-fit: cover" },
+        { url: portrant,  title: "Product name is quite long in some caces. And the news", className: "object-fit: cover" },
+        { url: portrant,  title: "Product name is quite long in some caces. And the news", className: "object-fit: cover" },
       ]
       static bestSeller = [
         { url: `https://placehold.co/200x300`,  date: `January 01, 2045`,  title: "Technology",  des : 'Lorem ipsum dolor sit amet consec adipis elit' },
