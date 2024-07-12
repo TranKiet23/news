@@ -6,43 +6,43 @@ import Footer from './components/FooterLayout.vue';
 import { debounce } from 'lodash'
 import { mapGetters } from 'vuex'
 export default {
-    name: 'App',
-    components: { Loading, HeaderLayout, Footer },
-    data() {
-        return {
-            loading: false,
-        }
+  name: 'App',
+  components: { Loading, HeaderLayout, Footer },
+  data() {
+    return {
+      loading: false,
+    }
+  },
+  computed: {
+    ...mapGetters(['isLoading']),
+  },
+  watch: {
+    isLoading(value) {
+      if (value == true) {
+        this.loading = value
+        return
+      }
+      this.delayLoading(value)
     },
-    computed: {
-        ...mapGetters(['isLoading']),
-    },
-    watch: {
-        isLoading(value) {
-            if (value == true) {
-                this.loading = value
-                return
-            }
-            this.delayLoading(value)
-        },
-    },
-    methods: {
-        delayLoading: debounce(function () {
-            this.loading = false
-        }, 500),
-    },
+  },
+  methods: {
+    delayLoading: debounce(function () {
+      this.loading = false
+    }, 500),
+  },
 }
 </script>
 <template>
   <HeaderLayout />
 
   <!-- Main Content -->
-    <div class="min-h-screen w-creen bg-gray-100">
-  <Loading v-if="loading"></Loading>
+  <div class="min-h-screen w-creen bg-gray-50">
+    <Loading v-if="loading"></Loading>
 
-      <div class="wrapper-page">
-        <router-view  />
-      </div>
+    <div class="wrapper-page">
+      <router-view />
     </div>
+  </div>
   <Footer></Footer>
 </template>
 
@@ -54,6 +54,10 @@ export default {
   flex-direction: row;
   justify-content: center;
   transform: translate(21%, 5px);
+  @media (max-width: 1440px) { 
+    max-width: 1250px;
+    transform: translate(6%, 0%);
+  }
   @media (max-width: 769px) { 
     max-width: 700px;
     transform: translate(1%, 1%);

@@ -58,7 +58,7 @@
               </a>
               <a class="text-gray-700 hover:text-red-600">Contact</a>
 
-            <div class="mx-5 w-[20%] items-center hidden md:flex">
+            <div class="mx-5 w-[20%] items-center hidden lg:flex">
               <input type="text" placeholder="Keyword" class="border border-gray-300 p-2 rounded-l-lg">
 
               <!--Search icon-->
